@@ -1,0 +1,24 @@
+<div style="text-align:center">
+  <h1 align="center">
+    Productos
+  </h1>
+</div>
+
+<div *ngFor="let prod of products">
+  <h3>
+    <a [title]="prod.name +' description'" [routerLink]="['/products',prod.id]">
+      {{prod.name}}
+    </a>
+  </h3>
+
+  <p *ngIf="prod.description">
+    Descripción: {{prod.description}}
+  </p>
+  <button (click)="share()">
+    Compartir
+  </button>
+  <app-product-alerts [product]="prod"
+                      (notify)="notify()">
+  </app-product-alerts>
+
+</div>
